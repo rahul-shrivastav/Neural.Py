@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .thin-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    /* Adjust thickness */
+    height: 4px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    /* or use a color like #f0f0f0 */
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #cdccd3, #e2e6eb);
+    /* Indigo to Blue gradient */
+    border-radius: 10px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #4338ca, #2563eb);
+    /* Darker on hover */
+  }
+}
