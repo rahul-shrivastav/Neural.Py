@@ -75,7 +75,19 @@ body {
       /* #29D3D3 0%, */
       #29D3D3 10px,
       #29D3D3 30px,
-      #29D3D3 800px,
+      #29D3D3 900px,
+        #000000 100px)
+      }
+      
+      .circle-gradient-t {
+        /* position: absolute; */
+        /* inset: 0;
+        z-index: 0; */
+        background: radial-gradient(circle at top,
+            /* #29D3D3 0%, */
+            #29D3D3 10px,
+            #29D3D3 30px,
+            #29D3D3 750px,
       #000000 100px)
 }
 
