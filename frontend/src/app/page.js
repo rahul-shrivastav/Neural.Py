@@ -17,17 +17,24 @@ export default function Home() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(prompt);
+
+    const form = document.getElementById('form');
+    form.classList.add('top-[1000px]', 'opacity-0');
+    const font1 = document.getElementById('font1');
+    font1.classList.add('top-[-1000px]', 'opacity-0');
+    const font2 = document.getElementById('font2');
+    font2.classList.add('top-[-1000px]', 'opacity-0');
   };
   return (
-    <div className="flex items-center justify-center relative  h-screen bg-black overflow-clip ">
+    <div className=" relative w-screen  h-screen bg-black overflow-clip ">
 
 
 
-      <div className=' flex flex-col items-center justify-center z-10  sm:w-[50%] w-[85%] '>
-        <div className='text-3xl w-full font-mono font-extrabold text-center md:text-5xl'>Generate <span className=' font-bold bg-gradient-to-r from-cyan-600 via-emerald-400 to-emerald-600 bg-clip-text text-transparent'>React</span> Code</div>
-        <div className='text-lg w-full font-mono font-bold  text-center my-10 md:text-2xl text-slate-300'>What do you want to build ?</div>
+      <div className='fixed top-1/2 left-1/2 transition-all -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10  sm:w-[50%] w-[85%]'>
+        <div id='font1' className='text-5xl w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-1000 relative top-0'>Generate <span className=' font-bold bg-gradient-to-r from-cyan-600 via-emerald-400 to-emerald-600 bg-clip-text text-transparent'>React</span> Code</div>
+        <div id='font2' className='text-sm my-4 w-full font-mono font-bold  text-center md:my-8 md:text-2xl text-slate-300 transition-all duration-1000 relative top-0'>What do you want to build ?</div>
 
-        <form onSubmit={handleSubmit} className=' rounded-sm text-white w-full relative -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
+        <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-0 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
 
           <textarea id="prompt"
             value={prompt}
@@ -42,25 +49,28 @@ export default function Home() {
           <div className='w-full -z-10  opacity-15 h-full absolute top-0 left-0 bg-lines'></div>
 
         </form>
+
       </div>
 
-      <div className='absolute top-0 m-auto flex items-center justify-center p-7'>
+      <div className='fixed top-12 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-7'>
         <img src='./logo_text.png' width={'180px'} className=' opacity-100'></img>
       </div>
+
       <div className='bg-lines w-full h-full absolute top-0 left-0 opacity-[0.05] border'></div>
       <div className='circle-gradient opacity-20 blur-3xl absolute border-white border top-[99%]  left-0  h-full w-full'></div>
       <div className='circle-gradient-t opacity-15 blur-3xl absolute border-white border bottom-11/12  left-0  h-full w-full'></div>
 
       {/* loading screen */}
-      {/* <div className='h-full w-full absolute top-0 left-0 z-20 flex items-center justify-center bg-black opacity-90'>
+      {loading &&
+        <div className='h-full w-full absolute top-0 left-0 z-20 flex items-center justify-center backdrop backdrop-blur-xl bg-black/10 '>
 
-        <div style={{ perspective: '1000px' }} className='flex flex-col items-center justify-center'>
-          <img width={'70px'} className='opacity-100 logo filter invert-50 hover:invert-0' src={'./logo1.png'}></img>
-          <span className='font-extralight font-mono text-[8px]'>Generating code...</span>
+          <div className='flex  flex-col items-center justify-center'>
+            <img width={'70px'} className='opacity-100 logo filter invert-50 hover:invert-0' src={'./logo1.png'}></img>
+            <span className='font-extralight font-mono text-[8px]'>Generating code...</span>
+          </div>
+
         </div>
-
-      </div> */}
-
+      } 
 
 
 
