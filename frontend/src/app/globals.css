@@ -91,7 +91,28 @@ body {
       #000000 100px)
 }
 
+/* ------------- */
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 1px;
+}
 
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: #060505;
+  border-radius: 10px;
+}
+
+/* Handle (scrollbar thumb) */
+::-webkit-scrollbar-thumb {
+  background: #065a3a8d;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 
 

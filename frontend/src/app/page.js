@@ -4,6 +4,7 @@ import Inputbox from '../components/Inputbox'
 import Conversations from '../components/Conversations'
 import { useState } from 'react';
 import { RiReactjsLine } from "react-icons/ri";
+import { Prompts } from '@/components/Prompts';
 
 
 
@@ -42,7 +43,7 @@ export default function Home() {
             placeholder="Write your component description here..."
             rows={10}
             cols={90}
-            className='p-3 z-10 focus:outline-none  rounded-md text-white w-full border border-slate-600 focus:border  focus:border-teal-900'  >
+            className='p-3 z-10 focus:outline-none font-extralight font-stretch-90% text-gray-300 rounded-md placeholder:text-gray-500 w-full border border-slate-600 focus:border  focus:border-teal-900'  >
           </textarea>
 
           <button type='submit' className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Component</button>
@@ -59,6 +60,53 @@ export default function Home() {
       <div className='bg-lines w-full h-full absolute top-0 left-0 opacity-[0.05] border'></div>
       <div className='circle-gradient opacity-20 blur-3xl absolute border-white border top-[99%]  left-0  h-full w-full'></div>
       <div className='circle-gradient-t opacity-15 blur-3xl absolute border-white border bottom-11/12  left-0  h-full w-full'></div>
+
+      {/* panels */}
+      <div className='flex items-center justify-center w-full h-[80%] fixed bottom-10 gap-5'>
+
+        {/* panel1 */}
+        <div className='w-[30%] rounded-sm h-full bofrder border-teal-900 flex flex-col items-center justify-center'>
+          <div className='w-full h-[65%] overflow-y-scroll px-5 '>
+            <Prompts text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
+            <Prompts text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
+            <Prompts text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
+            <Prompts text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
+          </div>
+          <div className='w-full h-[35%]  px-5 pt-5 flex'>
+            <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-0 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
+
+              <textarea id="prompt2"
+                value={prompt}
+                onChange={handleChange}
+                placeholder="Write another prompt here..."
+                className='flex-1 p-3 h-full z-10 focus:outline-none text-sm font-extralight font-stretch-90% text-gray-300 rounded-md placeholder:text-gray-500 w-full border border-slate-600 focus:border  focus:border-slate-500'  >
+              </textarea>
+
+              <button type='submit' className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Component</button>
+              <div className='w-full -z-10  opacity-25 h-full absolute top-0 left-0 bg-lines'></div>
+
+            </form>
+
+          </div>
+
+
+        </div>
+
+        {/* panel2 */}
+        <div className='w-[50%] rounded-sm h-full border border-teal-800'>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
 
       {/* loading screen */}
       {loading &&
