@@ -10,7 +10,7 @@ import { Prompts } from '@/components/Prompts';
 
 export default function Home() {
   const [prompt, setprompt] = useState('');
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
   const handleChange = (event) => {
     event.preventDefault()
     setprompt(event.target.value);
@@ -119,7 +119,7 @@ export default function Home() {
 
               {loading && <div className='absolute left-0 top-0 w-full h-full z-30 bg-black rounded-3xl'>
                 <div className='flex  flex-col items-center justify-center w-full h-full'>
-                  <img width={'70px'} className='opacity-100 logo filter invert-50 hover:invert-0' src={'./logo1.png'}></img>
+                  <img width={'40px'} className='opacity-100 logo filter invert-50 hover:invert-0' src={'./logo1.png'}></img>
                   <span className='font-extralight font-mono text-[8px]'>Generating code...</span>
                 </div>
               </div>}
