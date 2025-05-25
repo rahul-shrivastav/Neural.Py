@@ -19,8 +19,25 @@ export default function Home() {
     event.preventDefault();
     console.log(prompt);
 
+    const grad1 = document.getElementById('grad1');
+    grad1.classList.remove('left-0');
+    grad1.classList.add('left-[15%]');
+    const grad2 = document.getElementById('grad2');
+    grad2.classList.remove('left-0');
+    grad2.classList.add('left-[15%]');
+
+    const panel2 = document.getElementById('panel2');
+    panel2.classList.remove('-right-[100%]');
+    panel2.classList.add('right-0');
+    const panel1 = document.getElementById('panel1');
+    panel1.classList.remove('-left-[100%]');
+    panel1.classList.add('left-0');
+
     const form = document.getElementById('form');
     form.classList.add('top-[1000px]', 'opacity-0');
+    const logo = document.getElementById('logo');
+    logo.classList.remove('left-1/2');
+    logo.classList.add('left-[65%]');
     const font1 = document.getElementById('font1');
     font1.classList.add('top-[-1000px]', 'opacity-0');
     const font2 = document.getElementById('font2');
@@ -53,26 +70,28 @@ export default function Home() {
 
       </div>
 
-      <div className='fixed top-12 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-7'>
+      <div id='logo' className='transition-all duration-300 fixed top-12 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-7'>
         <img src='./logo_text.png' width={'180px'} className=' opacity-100'></img>
       </div>
 
+      {/* bg and GRADIENTS */}
       <div className='bg-lines w-full h-full absolute top-0 left-0 opacity-[0.05] border'></div>
-      <div className='circle-gradient opacity-20 blur-3xl absolute border-white border top-[99%]  left-0  h-full w-full'></div>
-      <div className='circle-gradient-t opacity-15 blur-3xl absolute border-white border bottom-11/12  left-0  h-full w-full'></div>
+      <div id='grad1' className='circle-gradient opacity-15 blur-3xl absolute border-white bottom-[70%]  left-0  h-full w-full'></div>
+      <div id='grad2' className='circle-gradient-b opacity-15 blur-3xl absolute border-white top-[90%]  left-0  h-full w-full'></div>
 
       {/* panels */}
-      <div className='flex items-center justify-center w-full h-[80%] fixed bottom-10 gap-5'>
+      <div className=' w-full h-full flex relative '>
 
         {/* panel1 */}
-        <div className='w-[30%] rounded-sm h-full bofrder border-teal-900 flex flex-col items-center justify-center'>
-          <div className='w-full h-[65%] overflow-y-scroll px-5 '>
-            <Prompts text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
-            <Prompts text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
-            <Prompts text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
-            <Prompts text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
+        <div id='panel1' className='w-[30%] bg-black absolute transition-all duration-500 -left-[100%] shadow-lg shadow-slate-600  rounded-sm h-full border-r border-teal-900 flex flex-col items-center justify-center'>
+          <div className='w-full  relative h-[65%] overflow-y-scroll '>
+
+
+            <div className=' w-full flex-1 overflow-y-scroll'>
+              <Prompts number={1} text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
+            </div>
           </div>
-          <div className='w-full h-[35%]  px-5 pt-5 flex'>
+          <div className='w-full h-[35%]  p-5 pt-15  flex'>
             <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-0 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
 
               <textarea id="prompt2"
@@ -88,13 +107,26 @@ export default function Home() {
             </form>
 
           </div>
-
-
         </div>
 
         {/* panel2 */}
-        <div className='w-[50%] rounded-sm h-full border border-teal-800'>
+        <div id='panel2' className='w-[70%] absolute -right-[100%] transition-all duration-500  rounded-sm h-full flex items-center justify-center  '>
 
+          <div className=' w-[70%] h-[75%] z-10 bg-black '>
+
+            <div className='gradient-border relative '>
+              <span className=' absolute z-10 top-3 right-3 opacity-50 text-teal-300 animate-pulse text-4xl p-4'><RiReactjsLine /></span>
+
+              {loading && <div className='absolute left-0 top-0 w-full h-full z-30 bg-black rounded-3xl'>
+                <div className='flex  flex-col items-center justify-center w-full h-full'>
+                  <img width={'70px'} className='opacity-100 logo filter invert-50 hover:invert-0' src={'./logo1.png'}></img>
+                  <span className='font-extralight font-mono text-[8px]'>Generating code...</span>
+                </div>
+              </div>}
+
+            </div>
+
+          </div>
         </div>
 
       </div>
