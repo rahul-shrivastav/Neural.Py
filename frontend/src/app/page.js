@@ -83,7 +83,7 @@ export default function Home() {
       <div className=' w-full h-full flex relative '>
 
         {/* panel1 */}
-        <div id='panel1' className='w-[30%] bg-black absolute transition-all duration-500 -left-[100%] shadow-lg shadow-slate-600  rounded-sm h-full border-r border-teal-900 flex flex-col items-center justify-center'>
+        <div id='panel1' className='w-[30%] bg-black absolute transition-all duration-500 -left-[100%]   rounded-sm h-full border-r border-slate-700/55  flex flex-col items-center justify-center'>
           <div className='w-full  relative h-[65%] overflow-y-scroll '>
 
 
@@ -140,17 +140,7 @@ export default function Home() {
 
 
 
-      {/* loading screen */}
-      {loading &&
-        <div className='h-full w-full absolute top-0 left-0 z-20 flex items-center justify-center backdrop backdrop-blur-xl bg-black/10 '>
 
-          <div className='flex  flex-col items-center justify-center'>
-            <img width={'70px'} className='opacity-100 logo filter invert-50 hover:invert-0' src={'./logo1.png'}></img>
-            <span className='font-extralight font-mono text-[8px]'>Generating code...</span>
-          </div>
-
-        </div>
-      } 
 
 
 
