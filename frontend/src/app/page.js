@@ -2,7 +2,7 @@
 import Navbar from '../components/Navbar'
 import Inputbox from '../components/Inputbox'
 import Conversations from '../components/Conversations'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RiReactjsLine } from "react-icons/ri";
 import { Prompts } from '@/components/Prompts';
 
@@ -15,6 +15,23 @@ export default function Home() {
     event.preventDefault()
     setprompt(event.target.value);
   };
+  useEffect(() => {
+    setTimeout(() => {
+      document.getElementById('font1').classList.remove('opacity-0', '-top-30');
+      document.getElementById('font1').classList.add('top-0');
+      document.getElementById('font2').classList.remove('opacity-0', '-top-30');
+      document.getElementById('font2').classList.add('top-0');
+      document.getElementById('form').classList.remove('opacity-0', 'top-30');
+      document.getElementById('form').classList.add('top-0');
+      document.getElementById('logo').classList.remove('opacity-10', 'scale-75');
+      // document.getElementById('logo').classList.add('top-0');
+
+    }, 10);
+    setTimeout(() => {
+      setloading(false);
+
+    }, 10000);
+  }, [])
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(prompt);
@@ -49,10 +66,10 @@ export default function Home() {
 
 
       <div className='fixed top-1/2 left-1/2 transition-all -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10  sm:w-[50%] w-[85%]'>
-        <div id='font1' className='text-5xl w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-1000 relative top-0'>Generate <span className=' font-bold bg-gradient-to-r from-cyan-600 via-emerald-400 to-emerald-600 bg-clip-text text-transparent'>React</span> Code</div>
-        <div id='font2' className='text-sm my-4 w-full font-mono font-bold  text-center md:my-8 md:text-2xl text-slate-300 transition-all duration-1000 relative top-0'>What do you want to build ?</div>
+        <div id='font1' className='text-5xl landing  w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-1000 relative -top-30 opacity-0'>Generate <span className=' linear-wipe'>React</span> Code</div>
+        <div id='font2' className='text-sm landing my-4 w-full font-mono font-light font-stretch-50%  text-center md:my-8 md:text-2xl text-gray-400 transition-all duration-1000 relative -top-30 opacity-0'>What do you want to build ?</div>
 
-        <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-0 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
+        <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-30 opacity-0 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
 
           <textarea id="prompt"
             value={prompt}
@@ -63,21 +80,22 @@ export default function Home() {
             className='p-3 z-10 focus:outline-none font-extralight font-stretch-90% text-gray-300 rounded-md placeholder:text-gray-500 w-full border border-slate-600 focus:border  focus:border-teal-900'  >
           </textarea>
 
+          <div className='w-full -z-10  opacity-15 h-[95%] absolute top-0 left-0 bg-lines'></div>
           <button type='submit' className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Component</button>
-          <div className='w-full -z-10  opacity-15 h-full absolute top-0 left-0 bg-lines'></div>
 
         </form>
 
+
       </div>
 
-      <div id='logo' className='transition-all duration-300 fixed top-12 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-7'>
+      <div id='logo' className='opacity-10 scale-75 transition-all duration-300 fixed top-12 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-7'>
         <img src='./logo_text.png' width={'180px'} className=' opacity-100'></img>
       </div>
 
       {/* bg and GRADIENTS */}
-      <div className='bg-lines w-full h-full absolute top-0 left-0 opacity-[0.05] border'></div>
+      <div className='bg-lines w-full h-full absolute top-0 left-0 opacity-[0.04] border'></div>
       <div id='grad1' className='circle-gradient opacity-15 blur-3xl absolute border-white bottom-[70%]  left-0  h-full w-full'></div>
-      <div id='grad2' className='circle-gradient-b opacity-15 blur-3xl absolute border-white top-[90%]  left-0  h-full w-full'></div>
+      <div id='grad2' className='circle-gradient-b opacity-15 blur-3xl absolute border-white top-[93%]  left-0  h-full w-full'></div>
 
       {/* panels */}
       <div className=' w-full h-full flex relative '>
