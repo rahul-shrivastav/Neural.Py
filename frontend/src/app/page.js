@@ -5,11 +5,14 @@ import Conversations from '../components/Conversations'
 import { useEffect, useState } from 'react';
 import { RiReactjsLine } from "react-icons/ri";
 import { Prompts } from '@/components/Prompts';
+import { LuCopy } from "react-icons/lu";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 
 
 
 export default function Home() {
   const [prompt, setprompt] = useState('');
+  // const [loading, setloading] = useState(false);
   const [loading, setloading] = useState(true);
   const handleChange = (event) => {
     event.preventDefault()
@@ -27,11 +30,13 @@ export default function Home() {
       // document.getElementById('logo').classList.add('top-0');
 
     }, 10);
+
     setTimeout(() => {
       setloading(false);
 
     }, 10000);
   }, [])
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(prompt);
@@ -67,7 +72,7 @@ export default function Home() {
 
       <div className='fixed top-1/2 left-1/2 transition-all -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10  sm:w-[50%] w-[85%]'>
         <div id='font1' className='text-5xl landing  w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-1000 relative -top-30 opacity-0'>Generate <span className=' linear-wipe'>React</span> Code</div>
-        <div id='font2' className='text-sm landing my-4 w-full font-mono font-light font-stretch-50%  text-center md:my-8 md:text-2xl text-gray-400 transition-all duration-1000 relative -top-30 opacity-0'>What do you want to build ?</div>
+        <div id='font2' className='text-sm landing my-4 w-full font-mono font-light  text-center md:my-8 md:text-2xl text-gray-400 transition-all duration-1000 relative -top-30 opacity-0'>What do you want to build ?</div>
 
         <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-30 opacity-0 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
 
@@ -134,7 +139,13 @@ export default function Home() {
 
             <div className='gradient-border relative '>
               <span className=' absolute z-10 top-3 right-3 opacity-50 text-teal-300 animate-pulse text-4xl p-4'><RiReactjsLine /></span>
+              <div className='w-12 h-20  absolute bottom-2 right-0 flex flex-col bg-transparent border-transparent'>
+                <button className='flex-1 w-full relative translate-x-[100%]   flex items-center justify-center text-emerald-700 hover:text-emerald-500 hover:cursor-pointer text-lg'><LuCopy />
+                </button>
+                <button className='flex-1 w-full relative translate-x-[100%] flex items-center justify-center text-emerald-700 hover:text-emerald-500 hover:cursor-pointer text-xl'><MdOutlineSpaceDashboard />
+                </button>
 
+              </div>
               {loading && <div className='absolute left-0 top-0 w-full h-full z-30 bg-black rounded-3xl'>
                 <div className='flex  flex-col items-center justify-center w-full h-full'>
                   <img width={'40px'} className='opacity-100 logo filter invert-50 hover:invert-0' src={'./logo1.png'}></img>
