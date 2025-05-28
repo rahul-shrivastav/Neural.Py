@@ -12,7 +12,7 @@
 
 NeuralFront is an application enables users to input natural language prompts describing UI components and receive generated React code in response. The backend hosts a fine-tuned language model that translates plain English instructions into functional React JSX, while the frontend offers an intuitive interface for seamless code generation and preview. 
 
-[![VISIT](https://img.shields.io/badge/-VISIT-blue?style=for-the-badge)](https://nlp-project-ten.vercel.app/)
+[![VISIT](https://img.shields.io/badge/-VISIT-blue?style=for-the-badge)](https://neural-front.vercel.app/)
 
 ## Tech Stack
 - ` Python ` : versatile, high-level, interpreted, easy-to-learn programming language.

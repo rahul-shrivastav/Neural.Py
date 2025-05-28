@@ -20,11 +20,11 @@ export default function Home() {
   };
   useEffect(() => {
     setTimeout(() => {
-      document.getElementById('font1').classList.remove('opacity-0', '-top-30');
+      document.getElementById('font1').classList.remove('opacity-10', '-top-30');
       document.getElementById('font1').classList.add('top-0');
-      document.getElementById('font2').classList.remove('opacity-0', '-top-30');
+      document.getElementById('font2').classList.remove('opacity-10', '-top-30');
       document.getElementById('font2').classList.add('top-0');
-      document.getElementById('form').classList.remove('opacity-0', 'top-30');
+      document.getElementById('form').classList.remove('opacity-10', 'top-30');
       document.getElementById('form').classList.add('top-0');
       document.getElementById('logo').classList.remove('opacity-10', 'scale-75');
       // document.getElementById('logo').classList.add('top-0');
@@ -71,10 +71,10 @@ export default function Home() {
 
 
       <div className='fixed top-1/2 left-1/2 transition-all -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10  sm:w-[50%] w-[85%]'>
-        <div id='font1' className='text-5xl landing  w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-1000 relative -top-30 opacity-0'>Generate <span className=' linear-wipe'>React</span> Code</div>
-        <div id='font2' className='text-sm landing my-4 w-full font-mono font-light  text-center md:my-8 md:text-2xl text-gray-400 transition-all duration-1000 relative -top-30 opacity-0'>What do you want to build ?</div>
+        <div id='font1' className='text-5xl landing  w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-[1.3s] relative -top-30 opacity-10'>Generate <span className=' linear-wipe'>React</span> Code</div>
+        <div id='font2' className='text-sm landing my-4 w-full font-mono font-light  text-center md:my-8 md:text-2xl text-gray-400 transition-all duration-[1.3s] relative -top-30 opacity-10'>What do you want to build ?</div>
 
-        <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-30 opacity-0 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
+        <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-30 opacity-10 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
 
           <textarea id="prompt"
             value={prompt}
