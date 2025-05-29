@@ -7,6 +7,7 @@ import { RiReactjsLine } from "react-icons/ri";
 import { Prompts } from '@/components/Prompts';
 import { LuCopy } from "react-icons/lu";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
+import Typewriter from '@/components/Typewriter';
 
 
 
@@ -34,7 +35,7 @@ export default function Home() {
     setTimeout(() => {
       setloading(false);
 
-    }, 10000);
+    }, 5000);
   }, [])
 
   const handleSubmit = (event) => {
@@ -70,7 +71,7 @@ export default function Home() {
 
 
 
-      <div className='fixed top-1/2 left-1/2 transition-all -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10  sm:w-[50%] w-[85%]'>
+      <div className='fixed  top-1/2 left-1/2 transition-all -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10  sm:w-[50%] w-[85%]'>
         <div id='font1' className='text-5xl landing  w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-[1.3s] relative -top-30 opacity-10'>Generate <span className=' linear-wipe'>React</span> Code</div>
         <div id='font2' className='text-sm landing my-4 w-full font-mono font-light  text-center md:my-8 md:text-2xl text-gray-400 transition-all duration-[1.3s] relative -top-30 opacity-10'>What do you want to build ?</div>
 
@@ -93,7 +94,7 @@ export default function Home() {
 
       </div>
 
-      <div id='logo' className='opacity-10 scale-75 transition-all duration-300 fixed top-12 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-7'>
+      <div id='logo' className='opacity-10 scale-75 transition-all duration-[1.2s] fixed top-12 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-7'>
         <img src='./logo_text.png' width={'180px'} className=' opacity-100'></img>
       </div>
 
@@ -106,7 +107,7 @@ export default function Home() {
       <div className=' w-full h-full flex relative '>
 
         {/* panel1 */}
-        <div id='panel1' className='w-[30%] bg-black absolute transition-all duration-500 -left-[100%]   rounded-sm h-full border-r border-slate-700/55  flex flex-col items-center justify-center'>
+        <div id='panel1' className='w-[30%] bg-black  absolute transition-all duration-500 -left-[100%]   rounded-sm h-full border-r border-slate-700/55  flex flex-col items-center justify-center'>
           <div className='w-full  relative h-[65%] overflow-y-scroll '>
 
 
@@ -138,7 +139,9 @@ export default function Home() {
           <div className=' w-[70%] h-[75%] z-10 bg-black '>
 
             <div className='gradient-border relative '>
+              {/* react logo */}
               <span className=' absolute z-10 top-3 right-3 opacity-50 text-teal-300 animate-pulse text-4xl p-4'><RiReactjsLine /></span>
+              {/* icons */}
               <div className='w-12 h-20  absolute bottom-2 right-0 flex flex-col bg-transparent border-transparent'>
                 <button className='flex-1 w-full relative translate-x-[100%]   flex items-center justify-center text-emerald-700 hover:text-emerald-500 hover:cursor-pointer text-lg'><LuCopy />
                 </button>
@@ -146,11 +149,17 @@ export default function Home() {
                 </button>
 
               </div>
+
+
               {loading && <div className='absolute left-0 top-0 w-full h-full z-30 bg-black rounded-3xl'>
                 <div className='flex  flex-col items-center justify-center w-full h-full'>
                   <img width={'40px'} className='opacity-100 logo filter invert-50 hover:invert-0' src={'./logo1.png'}></img>
                   <span className='font-extralight font-mono text-[8px]'>Generating code...</span>
                 </div>
+              </div>}
+
+              {!loading && <div className='absolute left-0 top-0 w-full h-full  bg-black rounded-3xl'>
+                <Typewriter />
               </div>}
 
             </div>
