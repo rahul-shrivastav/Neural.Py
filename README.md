@@ -12,7 +12,7 @@
 
 NeuralPy is a web-based application powered by a fine-tuned TinyLLaMA model that generates Python code from natural language queries and vice versa. The lightweight model is optimized for efficiency, enabling real-time code generation directly in the browser or on resource-constrained systems. NeuralPy serves as an intelligent coding assistant, ideal for learners, developers, and educators.
 
-[![VISIT](https://img.shields.io/badge/-VISIT-blue?style=for-the-badge)](https://neural-front.vercel.app/)
+[![VISIT](https://img.shields.io/badge/-VISIT-blue?style=for-the-badge)](https://neural-py.vercel.app/)
 
 ## Tech Stack
 - ` Python ` : versatile, high-level, interpreted, easy-to-learn programming language.
