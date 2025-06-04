@@ -10,7 +10,7 @@
 ![Keras](https://img.shields.io/badge/Keras-2.6.0-D00000?style=flat&logo=keras)
 ![Neural Networks](https://img.shields.io/badge/Neural%20Networks-Deep%20Learning-blue?style=flat&logo=tensorflow)
 
-Neural.Py is an application enables users to input natural language prompts describing UI components and receive generated React code in response. The backend hosts a fine-tuned language model that translates plain English instructions into functional React JSX, while the frontend offers an intuitive interface for seamless code generation and preview. 
+NeuralPy is a web-based application powered by a fine-tuned TinyLLaMA model that generates Python code from natural language queries and vice versa. The lightweight model is optimized for efficiency, enabling real-time code generation directly in the browser or on resource-constrained systems. NeuralPy serves as an intelligent coding assistant, ideal for learners, developers, and educators.
 
 [![VISIT](https://img.shields.io/badge/-VISIT-blue?style=for-the-badge)](https://neural-front.vercel.app/)
 
