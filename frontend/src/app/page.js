@@ -3,10 +3,13 @@ import Navbar from '../components/Navbar'
 import Inputbox from '../components/Inputbox'
 import Conversations from '../components/Conversations'
 import { useEffect, useState } from 'react';
+import { AiOutlinePython } from "react-icons/ai";
+
 import { RiReactjsLine } from "react-icons/ri";
 import { Prompts } from '@/components/Prompts';
 import { LuCopy } from "react-icons/lu";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
+
 import Typewriter from '@/components/Typewriter';
 
 
@@ -21,14 +24,14 @@ export default function Home() {
   };
   useEffect(() => {
     setTimeout(() => {
-      document.getElementById('font1').classList.remove('opacity-10', '-top-30');
+      document.getElementById('font1').classList.remove('opacity-10', '-top-10');
       document.getElementById('font1').classList.add('top-0');
-      document.getElementById('font2').classList.remove('opacity-10', '-top-30');
+      document.getElementById('font2').classList.remove('opacity-10', '-top-10');
       document.getElementById('font2').classList.add('top-0');
-      document.getElementById('form').classList.remove('opacity-10', 'top-30');
+      document.getElementById('form').classList.remove('opacity-10', 'top-10');
       document.getElementById('form').classList.add('top-0');
       document.getElementById('logo').classList.remove('opacity-10', 'scale-75');
-      // document.getElementById('logo').classList.add('top-0');
+      document.getElementById('logo').classList.add('scale-85');
 
     }, 10);
 
@@ -72,22 +75,22 @@ export default function Home() {
 
 
       <div className='fixed  top-1/2 left-1/2 transition-all -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10  sm:w-[50%] w-[85%]'>
-        <div id='font1' className='text-5xl landing  w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-[1.3s] relative -top-30 opacity-10'>Generate <span className=' linear-wipe'>React</span> Code</div>
-        <div id='font2' className='text-sm landing my-4 w-full font-mono font-light  text-center md:my-8 md:text-2xl text-gray-400 transition-all duration-[1.3s] relative -top-30 opacity-10'>What do you want to build ?</div>
+        <div id='font1' className='text-5xl landing  w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-[1.3s] relative -top-10 opacity-10'>Generate <span className=' linear-wipe'>Python</span> Code</div>
+        <div id='font2' className='text-sm landing my-4 w-full font-mono font-light  text-center md:my-8 md:text-2xl text-gray-400 transition-all duration-[1.3s] relative -top-10 opacity-10'>What do you want to build ?</div>
 
-        <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-30 opacity-10 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
+        <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-10 opacity-10 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
 
           <textarea id="prompt"
             value={prompt}
             onChange={handleChange}
-            placeholder="Write your component description here..."
+            placeholder="Write your requirements or query here..."
             rows={10}
             cols={90}
             className='p-3 z-10 focus:outline-none font-extralight font-stretch-90% text-gray-300 rounded-md placeholder:text-gray-500 w-full border border-slate-600 focus:border  focus:border-teal-900'  >
           </textarea>
 
           <div className='w-full -z-10  opacity-15 h-[95%] absolute top-0 left-0 bg-lines'></div>
-          <button type='submit' className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Component</button>
+          <button type='submit' className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Code</button>
 
         </form>
 
@@ -95,7 +98,7 @@ export default function Home() {
       </div>
 
       <div id='logo' className='opacity-10 scale-75 transition-all duration-[1.2s] fixed top-12 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-7'>
-        <img src='./logo_text.png' width={'180px'} className=' opacity-100'></img>
+        <img src='./logo_text2.png' width={'180px'} className=' opacity-100'></img>
       </div>
 
       {/* bg and GRADIENTS */}
@@ -125,7 +128,7 @@ export default function Home() {
                 className='flex-1 p-3 h-full z-10 focus:outline-none text-sm font-extralight font-stretch-90% text-gray-300 rounded-md placeholder:text-gray-500 w-full border border-slate-600 focus:border  focus:border-slate-500'  >
               </textarea>
 
-              <button type='submit' className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Component</button>
+              <button type='submit' className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Code</button>
               <div className='w-full -z-10  opacity-25 h-full absolute top-0 left-0 bg-lines'></div>
 
             </form>
@@ -140,7 +143,8 @@ export default function Home() {
 
             <div className='gradient-border relative '>
               {/* react logo */}
-              <span className=' absolute z-10 top-3 right-3 opacity-50 text-teal-300 animate-pulse text-4xl p-4'><RiReactjsLine /></span>
+              <span className=' absolute z-10 top-1/2 right-1/2 translate-1/2 -translate-y-1/2 opacity-5 text-teal-300 text-[130px] p-4'><AiOutlinePython />
+              </span>
               {/* icons */}
               <div className='w-12 h-20  absolute bottom-2 right-0 flex flex-col bg-transparent border-transparent'>
                 <button className='flex-1 w-full relative translate-x-[100%]   flex items-center justify-center text-emerald-700 hover:text-emerald-500 hover:cursor-pointer text-lg'><LuCopy />
