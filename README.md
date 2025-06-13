@@ -1,4 +1,4 @@
-## Neural.Py
+## NeuralPy
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue?style=flat&logo=python) 
 ![Flask](https://img.shields.io/badge/Flask-2.0.1-black?style=flat&logo=flask) 
@@ -37,7 +37,7 @@ Change the directory and Install the required dependencies by running:
 ```bash
 cd NeuralPy/backend
 pip install -r requirements.txt
-cd ../NeuralPy
+cd ../frontend
 npm install
 ```
 
