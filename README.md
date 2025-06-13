@@ -29,15 +29,15 @@ First, clone the repository to your local machine:
 
 
 ```bash
-git clone https://github.com/rahul-shrivastav/NeuralFront.git
+git clone https://github.com/rahul-shrivastav/NeuralPy.git
 ```
 ### 2. Install Dependencies
 Change the directory and Install the required dependencies by running:
 
 ```bash
-cd NeuralFront/backend
+cd NeuralPy/backend
 pip install -r requirements.txt
-cd ../frontend
+cd ../NeuralPy
 npm install
 ```
 
