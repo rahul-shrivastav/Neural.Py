@@ -1,27 +1,17 @@
 'use client'
-import Navbar from '../components/Navbar'
-import Inputbox from '../components/Inputbox'
-import Conversations from '../components/Conversations'
 import { useEffect, useState } from 'react';
 import { AiOutlinePython } from "react-icons/ai";
 
-import { RiReactjsLine } from "react-icons/ri";
 import { Prompts } from '@/components/Prompts';
 import { LuCopy } from "react-icons/lu";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
-
 import Typewriter from '@/components/Typewriter';
-
-
 
 export default function Home() {
   const [prompt, setprompt] = useState('');
-  // const [loading, setloading] = useState(false);
+  const [parray, setparray] = useState([]);
   const [loading, setloading] = useState(true);
-  const handleChange = (event) => {
-    event.preventDefault()
-    setprompt(event.target.value);
-  };
+  const [result, setResult] = useState('');
+
   useEffect(() => {
     setTimeout(() => {
       document.getElementById('font1').classList.remove('opacity-10', '-top-10');
@@ -41,9 +31,31 @@ export default function Home() {
     }, 5000);
   }, [])
 
-  const handleSubmit = (event) => {
+  const handleCopy = () => {
+    if (!result) {
+      alert('Wait for code to be generated.')
+      return;
+    }
+    navigator.clipboard.writeText(result)
+      .then(() => {
+        alert("Copied to clipboard !");
+      })
+      .catch((err) => {
+        alert("Failed to copy: ", err);
+      });
+  };
+
+
+
+  const handleChange = (e) => setprompt(e.target.value);
+
+  const handleSubmit = async (event) => {
+
     event.preventDefault();
-    console.log(prompt);
+    if (!prompt) {
+      alert('Prompt must not be empty !');
+      return
+    }
 
     const grad1 = document.getElementById('grad1');
     grad1.classList.remove('left-0');
@@ -68,6 +80,30 @@ export default function Home() {
     font1.classList.add('top-[-1000px]', 'opacity-0');
     const font2 = document.getElementById('font2');
     font2.classList.add('top-[-1000px]', 'opacity-0');
+
+
+    setloading(true);
+    setResult(null);
+
+    let p = "<|user|>\n" + prompt + "</s>\n<|assistant|>";
+    setparray(prevArray => [...prevArray, prompt]);
+    setprompt('');
+
+    try {
+      const res = await fetch("/api/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: p }),
+      });
+      const obj = await res.json();
+      setResult(obj.data[0].response.split('<|assistant|>')[1] || 'ERROR in huggingface API');
+    } catch (err) {
+      console.error(err);
+      setResult("Error in huggingface api, try with another prompt or later");
+    } finally {
+      setloading(false);
+    }
+
   };
   return (
     <div className=" relative w-screen  h-screen bg-black overflow-clip ">
@@ -90,7 +126,7 @@ export default function Home() {
           </textarea>
 
           <div className='w-full -z-10  opacity-15 h-[95%] absolute top-0 left-0 bg-lines'></div>
-          <button type='submit' className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Code</button>
+          <button type='submit' disabled={loading} className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Code</button>
 
         </form>
 
@@ -115,8 +151,15 @@ export default function Home() {
 
 
             <div className=' w-full flex-1 overflow-y-scroll'>
-              <Prompts number={1} text={'w-[35%] rounded-sm In Natural Language Processing (NLP), stop words are the most common words in a language that are often filtered out during text preprocessing. These words typically dont carry significant meaning on their own and are usually removed to reduce noise and focus on the important words in the text.h-full border border-teal-900 flex flex-'} />
+
+              {
+                parray.map((element, index) => {
+                  return (<Prompts key={index} text={element} number={index + 1} />)
+                })
+              }
+
             </div>
+
           </div>
           <div className='w-full h-[35%]  p-5 pt-15  flex'>
             <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-0 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
@@ -128,7 +171,7 @@ export default function Home() {
                 className='flex-1 p-3 h-full z-10 focus:outline-none text-sm font-extralight font-stretch-90% text-gray-300 rounded-md placeholder:text-gray-500 w-full border border-slate-600 focus:border  focus:border-slate-500'  >
               </textarea>
 
-              <button type='submit' className='z-10 hover:cursor-pointer hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Code</button>
+              <button type='submit' disabled={loading} className='z-10 hover:cursor-pointer disabled:cursor-disabled hover:border hover:border-white hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-emerald-600 via-emerald-400 text-black to-cyan-300 text-[10px] font-bold p-3 absolute font-stretch-100% bottom-6 right-6 rounded-sm flex items-center justify-center '>Generate Code</button>
               <div className='w-full -z-10  opacity-25 h-full absolute top-0 left-0 bg-lines'></div>
 
             </form>
@@ -147,9 +190,7 @@ export default function Home() {
               </span>
               {/* icons */}
               <div className='w-12 h-20  absolute bottom-2 right-0 flex flex-col bg-transparent border-transparent'>
-                <button className='flex-1 w-full relative translate-x-[100%]   flex items-center justify-center text-emerald-700 hover:text-emerald-500 hover:cursor-pointer text-lg'><LuCopy />
-                </button>
-                <button className='flex-1 w-full relative translate-x-[100%] flex items-center justify-center text-emerald-700 hover:text-emerald-500 hover:cursor-pointer text-xl'><MdOutlineSpaceDashboard />
+                <button onClick={handleCopy} className='flex-1 w-full relative translate-x-[100%] translate-y-[40%]   flex items-center justify-center text-emerald-700 hover:text-emerald-500 hover:cursor-pointer text-lg'><LuCopy />
                 </button>
 
               </div>
@@ -162,8 +203,8 @@ export default function Home() {
                 </div>
               </div>}
 
-              {!loading && <div className='absolute left-0 top-0 w-full h-full  bg-black rounded-3xl'>
-                <Typewriter />
+              {!loading && <div className='absolute p-4 left-0 top-0 w-full h-full  bg-black rounded-3xl'>
+                <Typewriter text={result} />
               </div>}
 
             </div>

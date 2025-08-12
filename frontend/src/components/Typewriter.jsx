@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { duotoneSea } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-const Typewriter = ({ text = 'Your code will be generated here...', speed = 10 }) => {
+const Typewriter = ({ text, speed = 10 }) => {
   const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
@@ -15,12 +17,23 @@ const Typewriter = ({ text = 'Your code will be generated here...', speed = 10 }
 
     return () => clearInterval(interval);
   }, [text, speed]);
-
+  const customStyle = {
+    ...duotoneSea,
+    'code[class*="language-"]': {
+      ...duotoneSea['code[class*="language-"]'],
+      background: "transparent",
+    },
+    'pre[class*="language-"]': {
+      ...duotoneSea['pre[class*="language-"]'],
+      background: "transparent",
+    },
+  };
   return (
-    <div className=" w-full h-full p-4 bg-transparent font-extralight font-mono text-[16px]">
-      {/* <pre><code className='w-[20%] h-full border '> */}
-      {displayedText}
-      {/* </code></pre> */}
+    <div className='w-full h-full overflow-y-auto overflow-x-auto'>
+      <SyntaxHighlighter language="python" style={customStyle}>
+        {displayedText.slice(1, -1)}
+      </SyntaxHighlighter>
+
     </div>
   );
 };
