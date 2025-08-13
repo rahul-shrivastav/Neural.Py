@@ -22,7 +22,12 @@ NeuralPy is a web-based application powered by a fine-tuned  `TinyLlama/TinyLlam
 
 </div>
 
+<div align="center">
+
 ## Tech Stack
+
+</div>
+
 - ` Python ` : versatile, high-level, interpreted, easy-to-learn programming language.
 - ` Next.js ` : Frontend framework based on React for building dynamic, SSR-enabled interfaces.
 - `Tailwind-CSS` : A utility-first CSS framework for building custom, responsive designs quickly by composing classes directly in HTML.
