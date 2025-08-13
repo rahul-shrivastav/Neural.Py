@@ -28,7 +28,13 @@ NeuralPy is a web-based application powered by a fine-tuned TinyLLaMA model that
 - `Tailwind-CSS` : A utility-first CSS framework for building custom, responsive designs quickly by composing classes directly in HTML.
 - `Pytorch` : A high-level deep learning API running on top of TensorFlow, used to quickly build and train neural networks with minimal code.
 
+<br>
+
+<div align="center">
+
 ## Getting Started
+
+</div>
 
 ### 1. Clone the Repository
 First, clone the repository to your local machine:
