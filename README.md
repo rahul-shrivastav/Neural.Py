@@ -12,15 +12,15 @@
 
 NeuralPy is a web-based application powered by a fine-tuned TinyLLaMA model that generates Python code from natural language queries and vice versa. The lightweight model is optimized for efficiency, enabling real-time code generation directly in the browser or on resource-constrained systems. NeuralPy serves as an intelligent coding assistant, ideal for learners, developers, and educators.
 
-[![VISIT](https://img.shields.io/badge/-VISIT-blue?style=for-the-badge)](https://neural-py.vercel.app/)
+<div align="center">
+  [![Try the Application](https://img.shields.io/badge/-VISIT-blue?style=for-the-badge)](https://neural-py.vercel.app/)
+</div>
 
 ## Tech Stack
 - ` Python ` : versatile, high-level, interpreted, easy-to-learn programming language.
-- ` Scikit-Learn `: A powerful Python library for machine learning.
 - ` Next.js ` : Frontend framework based on React for building dynamic, SSR-enabled interfaces.
-- ` Flask `: A lightweight Python web framework to build APIs.
 - `Tailwind-CSS` : A utility-first CSS framework for building custom, responsive designs quickly by composing classes directly in HTML.
-- `Keras` : A high-level deep learning API running on top of TensorFlow, used to quickly build and train neural networks with minimal code.
+- `Pytorch` : A high-level deep learning API running on top of TensorFlow, used to quickly build and train neural networks with minimal code.
 
 ## Getting Started
 
@@ -35,35 +35,44 @@ git clone https://github.com/rahul-shrivastav/NeuralPy.git
 Change the directory and Install the required dependencies by running:
 
 ```bash
-cd NeuralPy/backend
-pip install -r requirements.txt
-cd ../frontend
+cd frontend
 npm install
 ```
-
-### 3. Setup Environment Variables in Frontend folder
-
-To run this project, you will need to add the following environment variables to your .env file in frontend
-```bash
-NEXT_PUBLIC_API_URL=http://127.0.0.1:5000
-```
-A sample .evn file is also provided in the repository.
-
-
 ### 4. Run the application locally
 
-Navigate to `/backend` and run the development backend server :
-
-```bash
-python app.py
-```
 Now navigate to `/frontend` and run the development frontend server :
 ```bash
 npm run dev
 ```
 Open port `3000` on `localhost` with your browser to see the result. 
 
+  
+## Fine-Tuning Highlights
+### Key Libraries & Tools
+- ` Transformers, PEFT, BitsAndBytes, TRL (SFTTrainer) ` : orchestrate fine-tuning with quantized models and LoRA adapters.
+- ` Pandas, Datasets ` : for dataset prep and handling.
+- `Google Colab & Drive` : easy data access and training in the cloud.
 
+### Techniques at a Glance
 
+- 4-Bit Quantization with BitsAndBytes (NF4, double-quantization) lowers VRAM usage drastically—enabling efficient fine-tuning even on modest hardware. 
+- LoRA (Low-Rank Adaptation) injects lightweight adapter modules into frozen base layers, maintaining performance while tuning significantly fewer parameters. 
+- QLoRA-style setup — combining quantization and LoRA for maximal efficiency without loss in effectiveness. 
+- Trainer : TRL’s SFTTrainer orchestrates training with PEFT integration, using optimizer “paged_adamw_32bit”, cosine learning rate schedule, and gradient accumulation.
+
+### Workflow Summary
+
+- Data prep : Convert CSV with instruction + output columns into conversational tokens using <|user|> / <|assistant|> delimiters.
+- Load model : 'TinyLlama-1.1B…' in highly-efficient 4-bit mode.
+- Configure LoRA : Rank = 8, alpha = 16, dropout = 0.05, task type = CAUSAL_LM.
+- Train : With FP16, batch size 1, gradient accumulation, 250 steps (max), and mixed-precision.
+- Merge adapters : merge_and_unload() integrates LoRA weights back into the base model for faster, dependency-free inference.
+
+```bash
+https://huggingface.co/rahul-shrivastav/Neuralpy-v1
+```
+<div align="center">
+  [![Huggingface Model Repository](https://img.shields.io/badge/Huggingface%20Model%20Repository-brightgreen?logo=huggingface&logoColor=white&style=for-the-badge)](https://huggingface.co/your-model-repo)
+</div>
 
 
