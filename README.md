@@ -1,4 +1,8 @@
+<div align="center">
+
 ## NeuralPy
+
+</div>
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue?style=flat&logo=python) 
 ![Flask](https://img.shields.io/badge/Flask-2.0.1-black?style=flat&logo=flask) 
@@ -13,7 +17,9 @@
 NeuralPy is a web-based application powered by a fine-tuned TinyLLaMA model that generates Python code from natural language queries and vice versa. The lightweight model is optimized for efficiency, enabling real-time code generation directly in the browser or on resource-constrained systems. NeuralPy serves as an intelligent coding assistant, ideal for learners, developers, and educators.
 
 <div align="center">
-  [![Try the Application](https://img.shields.io/badge/-VISIT-blue?style=for-the-badge)](https://neural-py.vercel.app/)
+  
+[![Huggingface Model Repo](https://img.shields.io/badge/VISIT-blue?logo=web&logoColor=white&style=for-the-badge)](https://neural-py.vercel.app/)
+
 </div>
 
 ## Tech Stack
@@ -46,8 +52,13 @@ npm run dev
 ```
 Open port `3000` on `localhost` with your browser to see the result. 
 
-  
+<br>
+<div align="center">
+
 ## Fine-Tuning Highlights
+
+</div>
+
 ### Key Libraries & Tools
 - ` Transformers, PEFT, BitsAndBytes, TRL (SFTTrainer) ` : orchestrate fine-tuning with quantized models and LoRA adapters.
 - ` Pandas, Datasets ` : for dataset prep and handling.
@@ -68,11 +79,8 @@ Open port `3000` on `localhost` with your browser to see the result.
 - Train : With FP16, batch size 1, gradient accumulation, 250 steps (max), and mixed-precision.
 - Merge adapters : merge_and_unload() integrates LoRA weights back into the base model for faster, dependency-free inference.
 
-```bash
-https://huggingface.co/rahul-shrivastav/Neuralpy-v1
-```
 <div align="center">
-  [![Huggingface Model Repository](https://img.shields.io/badge/Huggingface%20Model%20Repository-brightgreen?logo=huggingface&logoColor=white&style=for-the-badge)](https://huggingface.co/your-model-repo)
+
+[![Huggingface Model Repo](https://img.shields.io/badge/Huggingface%20Model%20Repo-brightgreen?logo=huggingface&logoColor=white&style=for-the-badge)](https://huggingface.co/rahul-shrivastav/Neuralpy-v1)
+
 </div>
-
-
