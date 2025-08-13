@@ -4,23 +4,28 @@
 
 </div>
 
+<div align="center">
+
 ![Python](https://img.shields.io/badge/Python-3.9-blue?style=flat&logo=python) 
-![Flask](https://img.shields.io/badge/Flask-2.0.1-black?style=flat&logo=flask) 
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.2.0-38B2AC?style=flat&logo=tailwindcss) 
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-0.24.2-orange?style=flat&logo=scikitlearn)
 ![pandas](https://img.shields.io/badge/pandas-1.3.3-blue?style=flat&logo=pandas)
 ![NumPy](https://img.shields.io/badge/NumPy-1.21.2-013243?style=flat&logo=numpy)
-![Next.js](https://img.shields.io/badge/Next.js-13.0.0-black?style=flat&logo=nextdotjs)
 ![Keras](https://img.shields.io/badge/Keras-2.6.0-D00000?style=flat&logo=keras)
 ![Neural Networks](https://img.shields.io/badge/Neural%20Networks-Deep%20Learning-blue?style=flat&logo=tensorflow)
+![Next.js](https://img.shields.io/badge/Next.js-13.0.0-black?style=flat&logo=nextdotjs)
+![Flask](https://img.shields.io/badge/Flask-2.0.1-black?style=flat&logo=flask) 
 
-NeuralPy is a web-based application powered by a fine-tuned  `TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T`  model that generates Python code from natural language queries and vice versa. The lightweight model is optimized for efficiency, enabling real-time code generation directly in the browser or on resource-constrained systems. NeuralPy serves as an intelligent coding assistant, ideal for learners, developers, and educators.
+</div>
 
 <div align="center">
   
-[![Huggingface Model Repo](https://img.shields.io/badge/VISIT-blue?logo=web&logoColor=white&style=for-the-badge)](https://neural-py.vercel.app/)
+[![VISI](https://img.shields.io/badge/VISIT-blue?logo=web&logoColor=white&style=for-the-badge)](https://neural-py.vercel.app/)
 
 </div>
+
+NeuralPy is a web-based application powered by a fine-tuned  `TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T`  model that generates Python code from natural language queries and vice versa. The lightweight model is optimized for efficiency, enabling real-time code generation directly in the browser or on resource-constrained systems. NeuralPy serves as an intelligent coding assistant, ideal for learners, developers, and educators.
+
 
 <div align="center">
 
