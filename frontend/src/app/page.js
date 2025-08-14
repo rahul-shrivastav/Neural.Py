@@ -10,6 +10,7 @@ export default function Home() {
   const [prompt, setprompt] = useState('');
   const [parray, setparray] = useState([]);
   const [loading, setloading] = useState(true);
+  const [coldstart, setcoldstart] = useState(true);
   const [result, setResult] = useState('');
 
   useEffect(() => {
@@ -96,12 +97,13 @@ export default function Home() {
         body: JSON.stringify({ prompt: p }),
       });
       const obj = await res.json();
-      setResult(obj.data[0].response.split('<|assistant|>')[1] || 'ERROR in huggingface API');
+      setResult(obj.data[0].response.split('<|assistant|>')[1] || 'ERROR in huggingface API , you can try again');
     } catch (err) {
       console.error(err);
       setResult("Error in huggingface api, try with another prompt or later");
     } finally {
       setloading(false);
+      setcoldstart(false);
     }
 
   };
@@ -112,7 +114,7 @@ export default function Home() {
 
       <div className='fixed  top-1/2 left-1/2 transition-all -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10  sm:w-[50%] w-[85%]'>
         <div id='font1' className='text-5xl landing  w-full font-mono font-extrabold text-center md:text-6xl transition-all duration-[1.3s] relative -top-10 opacity-10'>Generate <span className=' linear-wipe'>Python</span> Code</div>
-        <div id='font2' className='text-sm landing my-4 w-full font-mono font-light  text-center md:my-8 md:text-2xl text-gray-400 transition-all duration-[1.3s] relative -top-10 opacity-10'>What do you want to build ?</div>
+        <div id='font2' className='text-[13px] landing my-4 w-full font-mono font-light  text-center md:my-8 md:text-[17px] text-gray-400 transition-all duration-[1.3s] relative -top-10 opacity-10'>Describe your function or script you want to be written.</div>
 
         <form id='form' onSubmit={handleSubmit} className='transition-all duration-1000 relative top-10 opacity-10 rounded-sm text-white w-full  -- bg-clip-padding backdrop-filter backdrop-blur-[4px] bg-opacity-80  '>
 
@@ -200,6 +202,9 @@ export default function Home() {
                 <div className='flex  flex-col items-center justify-center w-full h-full'>
                   <img width={'40px'} className='opacity-100 logo filter invert-50 hover:invert-0' src={'./logo1.png'}></img>
                   <span className='font-extralight font-mono text-[8px]'>Generating code...</span>
+                  {
+                    coldstart && <span className='font-extralight font-mono text-[11px] text-white p-2'>Model hosted on free tier server, first request might take 2-3 minutes due to coldstart </span>
+                  }
                 </div>
               </div>}
 
