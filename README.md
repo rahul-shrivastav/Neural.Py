@@ -82,18 +82,18 @@ Open port `3000` on `localhost` with your browser to see the result.
 
 ### Techniques at a Glance
 
-- 4-Bit Quantization with BitsAndBytes (NF4, double-quantization) lowers VRAM usage drastically—enabling efficient fine-tuning even on modest hardware. 
+- 4-Bit Quantization with `BitsAndBytes` (NF4, double-quantization) lowers VRAM usage drastically—enabling efficient fine-tuning even on modest hardware. 
 - LoRA (Low-Rank Adaptation) injects lightweight adapter modules into frozen base layers, maintaining performance while tuning significantly fewer parameters. 
 - QLoRA-style setup — combining quantization and LoRA for maximal efficiency without loss in effectiveness. 
-- Trainer : TRL’s SFTTrainer orchestrates training with PEFT integration, using optimizer “paged_adamw_32bit”, cosine learning rate schedule, and gradient accumulation.
+- Trainer : TRL’s `SFTTrainer` orchestrates training with PEFT integration, using optimizer `paged_adamw_32bit`, cosine learning rate schedule, and gradient accumulation.
 
 ### Workflow Summary
 
-- Data prep : Convert CSV with instruction + output columns into conversational tokens using <|user|> / <|assistant|> delimiters.
+- Data prep : Convert CSV with instruction + output columns into conversational tokens using `<|user|> / <|assistant|>` delimiters.
 - Load model : 'TinyLlama-1.1B…' in highly-efficient 4-bit mode.
-- Configure LoRA : Rank = 8, alpha = 16, dropout = 0.05, task type = CAUSAL_LM.
+- Configure LoRA : `Rank = 8`, `alpha = 16`, `dropout = 0.05`, task type = `CAUSAL_LM`.
 - Train : With FP16, batch size 1, gradient accumulation, 250 steps (max), and mixed-precision.
-- Merge adapters : merge_and_unload() integrates LoRA weights back into the base model for faster, dependency-free inference.
+- Merge adapters : `merge_and_unload()` integrates LoRA weights back into the base model for faster, dependency-free inference.
 
 <div align="center">
 
