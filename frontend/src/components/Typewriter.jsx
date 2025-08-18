@@ -31,7 +31,7 @@ const Typewriter = ({ text, speed = 10 }) => {
     return (
         <div className="overflow-clip w-full h-full">
             <SyntaxHighlighter language="python" style={customStyle}>
-                {displayedText.slice(1, -1)}
+                {displayedText.slice(1)}
             </SyntaxHighlighter>
         </div>
     );
